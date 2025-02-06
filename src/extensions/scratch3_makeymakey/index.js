@@ -255,7 +255,7 @@ class Scratch3MakeyMakeyBlocks {
                         {text: 's', value: 's'},
                         {text: 'd', value: 'd'},
                         {text: 'f', value: 'f'},
-                        {text: 'h', value: 'h'}
+                        {text: 'g', value: 'g'}
                     ]
                 },
                 SEQUENCE: {
