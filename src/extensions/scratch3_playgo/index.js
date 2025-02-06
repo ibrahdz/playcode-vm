@@ -34,7 +34,7 @@ class PlayGo {
             // Required: the machine-readable name of this extension.
             // Will be used as the extension's namespace.
             // Allowed characters are those matching the regular expression [\w-]: A-Z, a-z, 0-9, and hyphen ("-").
-            id: 'PlayGo',
+            id: 'playgo',
 
             // Core extensions only: override the default extension block colors.
             color1: '#FF8C1A',
