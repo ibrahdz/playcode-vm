@@ -2848,6 +2848,9 @@ class Runtime extends EventEmitter {
         // Do not start if we are already running
         if (this._steppingInterval) return;
 
+        console.log('✅ scratch-vm is correctly linked on Green Flag!');
+
+
         let interval = Runtime.THREAD_STEP_INTERVAL;
         if (this.compatibilityMode) {
             interval = Runtime.THREAD_STEP_INTERVAL_COMPATIBILITY;
