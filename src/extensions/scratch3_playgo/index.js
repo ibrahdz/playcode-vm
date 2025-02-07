@@ -16,7 +16,7 @@ const formatMessage = require('format-message');
 
 // Core, Team, and Official extension classes should be registered statically with the Extension Manager.
 // See: scratch-vm/src/extension-support/extension-manager.js
-class playgo {
+class Scratch3PlayGoBlocks {
     constructor (runtime) {
         /**
          * Store this for later communication with the Scratch VM runtime.
