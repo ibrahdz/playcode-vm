@@ -89,7 +89,7 @@ class Scratch3PlayGoBlocks{
 
     getInfo () {
         return {
-            id: playgo.extensionId,
+            id: 'playgo',
             name: 'TDRobotica IoT',
             blockIconURI: blockIconURI,
             showStatusButton: true,
