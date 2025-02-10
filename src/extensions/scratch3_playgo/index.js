@@ -77,9 +77,9 @@ class arduino {
   isBtnPressed = () => this.btn === 1
 }
 
-class playIot{
+class Scratch3PlayGoBlocks{
     static get extensionId () {
-        return 'TdrPlayIot'
+        return 'playgo'
     }
 
     constructor (runtime) {
@@ -89,7 +89,7 @@ class playIot{
 
     getInfo () {
         return {
-            id: playgo,
+            id: playgo.extensionId,
             name: 'TDRobotica IoT',
             blockIconURI: blockIconURI,
             showStatusButton: true,
@@ -118,4 +118,4 @@ class playIot{
     readTemp = () => this._peripheral.temp
 }
 
-module.exports = playIot
+module.exports = Scratch3PlayGoBlocks
