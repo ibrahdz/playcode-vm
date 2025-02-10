@@ -61,6 +61,8 @@ class Scratch3PlayGoBlocks {
          */
         this.outputsList = ['Out1', 'Out2', 'Out3', 'Out4'];
 
+        this.inputList = ['In1', 'In2', 'In3', 'In4'];
+
         /**
          * A randomly selected language code, for use as the default value in the language menu.
          * Properly filled in getInfo so it is updated when the interface languages changes.
@@ -141,17 +143,7 @@ class Scratch3PlayGoBlocks {
                             defaultValue: this._randomLanguageCode
                         }
                     }
-                },
-                {
-                    opcode: 'getViewerLanguage',
-                    text: formatMessage({
-                        id: 'translate.viewerLanguage',
-                        default: 'language',
-                        description: 'the languge of the project viewer'
-                    }),
-                    blockType: BlockType.REPORTER,
-                    arguments: {}
-                },
+                },                
                 {
                     opcode: 'calculate',
                     text: formatMessage({
@@ -181,18 +173,37 @@ class Scratch3PlayGoBlocks {
                     blockType: BlockType.COMMAND,
                     arguments: {
                         OUTPUT: {
-                            type: ArgumentType.NUMBER,
+                            type: ArgumentType.STRING,
                             menu: 'outputs',
+                            defaultValue: 'Output1'
+
+                        }
+                    }
+                },
+                {
+                    opcode: 'PlayGoReadOn',
+                    text: formatMessage({
+                        id: 'translate.viewerLanguage',
+                        default: 'Leer [INPUT]',
+                        description: 'Lee una entrada'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        INPUT: {
+                            type: ArgumentType.STRING,
+                            menu: 'inputs',
+                            defaultValue: 'Input1'
+
                         }
                     }
                 },
             ],
             menus: {
-                languages: {
-                    acceptReporters: true,
-                    items: this._supportedLanguages
+                inputs: {
+                    acceptReporters: false,
+                    items: this.inputsList
                 },
-                languages: {
+                outputs: {
                     acceptReporters: false,
                     items: this.outputsList
                 }
@@ -213,6 +224,13 @@ class Scratch3PlayGoBlocks {
     PlayGoTurnOn(args) {
         return true;
     }    
+
+    /**
+    * Turn on an output from the PlayGo board
+    */
+    PlayGoReadOn(args) {
+        return true;
+    }   
 
     /**
      * Computes a list of language code and name pairs for the given language.
