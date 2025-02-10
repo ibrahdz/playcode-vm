@@ -90,7 +90,7 @@ class Scratch3PlayIoTBlocks{
     getInfo () {
         return {
             id: Scratch3PlayIoTBlocks.extensionId,
-            name: 'PlayGo',
+            name: 'PlayIoT',
             blockIconURI: blockIconURI,
             menuIconURI: blockIconURI,
             showStatusButton: true,
