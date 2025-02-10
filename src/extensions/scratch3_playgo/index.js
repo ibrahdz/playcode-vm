@@ -194,16 +194,20 @@ class Scratch3PlayGoBlocks {
                     }
                 },*/
             ],
-            /*menus: {
-                inputs: {
+            menus: {
+                languages: {
+                    acceptReporters: true,
+                    items: this._supportedLanguages
+                },
+                /*inputs: {
                     acceptReporters: false,
                     items: this.inputsList
                 },
                 outputs: {
                     acceptReporters: false,
                     items: this.outputsList
-                }
-            }*/
+                } */
+            }
         };
     }
 
