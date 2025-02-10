@@ -59,9 +59,9 @@ class Scratch3PlayGoBlocks {
          * @type {Array.<object.<string, string>>}
          * @private
          */
-        //this.outputsList = ['Out1', 'Out2', 'Out3', 'Out4'];
+        this.outputsList = ['Out1', 'Out2', 'Out3', 'Out4'];
 
-        //this.inputList = ['In1', 'In2', 'In3', 'In4'];
+        this.inputList = ['In1', 'In2', 'In3', 'In4'];
 
         /**
          * A randomly selected language code, for use as the default value in the language menu.
@@ -173,7 +173,7 @@ class Scratch3PlayGoBlocks {
                     blockType: BlockType.REPORTER,
                     arguments: {}
                 },
-                /* {
+                {
                     opcode: 'PlayGoTurnOn',
                     text: formatMessage({
                         id: 'translate.PlaygoTurnOn',
@@ -193,7 +193,7 @@ class Scratch3PlayGoBlocks {
                 {
                     opcode: 'PlayGoReadOn',
                     text:'Leer [INPUT]',
-                    blockType: BlockType.REPORTER,
+                    blockType: BlockType.COMMAND,
                     arguments: {
                         INPUT: {
                             type: ArgumentType.STRING,
@@ -202,21 +202,21 @@ class Scratch3PlayGoBlocks {
 
                         }
                     }
-                },*/
+                },
             ],
             menus: {
                 languages: {
                     acceptReporters: true,
                     items: this._supportedLanguages
                 },
-                /*inputs: {
+                inputs: {
                     acceptReporters: false,
                     items: this.inputsList
                 },
                 outputs: {
                     acceptReporters: false,
                     items: this.outputsList
-                } */
+                }
             }
         };
     }
@@ -230,17 +230,17 @@ class Scratch3PlayGoBlocks {
 
     /**
     * Turn on an output from the PlayGo board
-    
+    */
     PlayGoTurnOn(args) {
         return true;
-    }    */
+    } 
 
     /**
     * Turn on an output from the PlayGo board
-    
+    */
     PlayGoReadOn(args) {
         return true;
-    }   */
+    } 
 
     /**
      * Computes a list of language code and name pairs for the given language.
