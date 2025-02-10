@@ -211,7 +211,7 @@ class Scratch3PlayGoBlocks {
     * Sum up two numbers
     */
     calculate(args) {
-        return args.NUM1 + args.NUM2;
+        return parseInt(args.NUM1) + parseInt(args.NUM2);
     }
 
     /**
