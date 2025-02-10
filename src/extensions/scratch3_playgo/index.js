@@ -156,7 +156,6 @@ class Scratch3PlayGoBlocks {
                         NUM1: {
                             type: ArgumentType.NUMBER,
                             defaultValue: 0
-                            })
                         },
                         NUM2: {
                             type: ArgumentType.NUMBER,                            
