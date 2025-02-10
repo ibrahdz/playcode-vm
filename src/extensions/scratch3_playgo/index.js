@@ -59,9 +59,9 @@ class Scratch3PlayGoBlocks {
          * @type {Array.<object.<string, string>>}
          * @private
          */
-        this.outputsList = ['Out1', 'Out2', 'Out3', 'Out4'];
+        //this.outputsList = ['Out1', 'Out2', 'Out3', 'Out4'];
 
-        this.inputList = ['In1', 'In2', 'In3', 'In4'];
+        //this.inputList = ['In1', 'In2', 'In3', 'In4'];
 
         /**
          * A randomly selected language code, for use as the default value in the language menu.
@@ -194,7 +194,7 @@ class Scratch3PlayGoBlocks {
                     }
                 },*/
             ],
-            menus: {
+            /*menus: {
                 inputs: {
                     acceptReporters: false,
                     items: this.inputsList
@@ -203,7 +203,7 @@ class Scratch3PlayGoBlocks {
                     acceptReporters: false,
                     items: this.outputsList
                 }
-            }
+            }*/
         };
     }
 
