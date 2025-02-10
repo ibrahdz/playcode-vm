@@ -182,10 +182,7 @@ class Scratch3PlayGoBlocks {
                 },
                 {
                     opcode: 'PlayGoReadOn',
-                    text: formatMessage({
-                        id: 'translate.viewerLanguage',
-                        default: 'Leer [INPUT]',
-                        description: 'Lee una entrada'
+                    text:'Leer [INPUT]'
                     }),
                     blockType: BlockType.REPORTER,
                     arguments: {
