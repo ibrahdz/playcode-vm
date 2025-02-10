@@ -143,7 +143,27 @@ class Scratch3PlayGoBlocks {
                     }),
                     blockType: BlockType.REPORTER,
                     arguments: {}
-                }
+                },
+                {
+                    opcode: 'calculate',
+                    text: formatMessage({
+                        id: 'translate.calculate',
+                        default: 'num1 [NUM1] num2 [NUM2]',
+                        description: 'Add two numbers'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        NUM1: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 0
+                            })
+                        },
+                        NUM2: {
+                            type: ArgumentType.NUMBER,                            
+                            defaultValue: 0
+                        }
+                    }
+                },
             ],
             menus: {
                 languages: {
@@ -152,6 +172,13 @@ class Scratch3PlayGoBlocks {
                 }
             }
         };
+    }
+
+    /**
+    * Sum up two numbers
+    */
+    calculate(args) {
+        return args.NUM1 + args.NUM2;
     }
 
     /**
