@@ -183,7 +183,6 @@ class Scratch3PlayGoBlocks {
                 {
                     opcode: 'PlayGoReadOn',
                     text:'Leer [INPUT]',
-                    }),
                     blockType: BlockType.REPORTER,
                     arguments: {
                         INPUT: {
