@@ -175,7 +175,7 @@ class Scratch3PlayGoBlocks {
                         OUTPUT: {
                             type: ArgumentType.STRING,
                             menu: 'outputs',
-                            defaultValue: 'Output1'
+                            defaultValue: 'Out1'
 
                         }
                     }
@@ -188,7 +188,7 @@ class Scratch3PlayGoBlocks {
                         INPUT: {
                             type: ArgumentType.STRING,
                             menu: 'inputs',
-                            defaultValue: 'Input1'
+                            defaultValue: 'In1'
 
                         }
                     }
