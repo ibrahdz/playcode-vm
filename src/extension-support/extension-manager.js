@@ -25,6 +25,7 @@ const builtinExtensions = {
     boost: () => require('../extensions/scratch3_boost'),
     gdxfor: () => require('../extensions/scratch3_gdx_for'),
     playgo: () => require('../extensions/scratch3_playgo'),
+    playiot: () => require('../extensions/scratch3_playiot'),
 };
 
 /**
