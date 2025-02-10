@@ -163,7 +163,7 @@ class Scratch3PlayGoBlocks {
                         }
                     }
                 },
-                {
+                /* {
                     opcode: 'PlayGoTurnOn',
                     text: formatMessage({
                         id: 'translate.PlaygoTurnOn',
@@ -192,7 +192,7 @@ class Scratch3PlayGoBlocks {
 
                         }
                     }
-                },
+                },*/
             ],
             menus: {
                 inputs: {
@@ -216,17 +216,17 @@ class Scratch3PlayGoBlocks {
 
     /**
     * Turn on an output from the PlayGo board
-    */
+    
     PlayGoTurnOn(args) {
         return true;
-    }    
+    }    */
 
     /**
     * Turn on an output from the PlayGo board
-    */
+    
     PlayGoReadOn(args) {
         return true;
-    }   
+    }   */
 
     /**
      * Computes a list of language code and name pairs for the given language.
