@@ -163,6 +163,16 @@ class Scratch3PlayGoBlocks {
                         }
                     }
                 },
+                {
+                    opcode: 'getViewerLanguage',
+                    text: formatMessage({
+                        id: 'translate.viewerLanguage',
+                        default: 'language',
+                        description: 'the languge of the project viewer'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {}
+                },
                 /* {
                     opcode: 'PlayGoTurnOn',
                     text: formatMessage({
