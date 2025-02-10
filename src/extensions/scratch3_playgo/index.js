@@ -84,7 +84,7 @@ class Scratch3PlayGoBlocks{
 
     constructor (runtime) {
         this.runtime = runtime
-        this._peripheral = new arduino(runtime, playIot.extensionId)
+        this._peripheral = new arduino(runtime, playgo.extensionId)
     }
 
     getInfo () {
