@@ -184,7 +184,7 @@ class Scratch3PlayGoBlocks {
                     arguments: {
                         OUTPUT: {
                             type: ArgumentType.STRING,
-                            menu: 'outputs',
+                            menu: 'languages',
                             defaultValue: 'Out1'
 
                         }
@@ -197,7 +197,7 @@ class Scratch3PlayGoBlocks {
                     arguments: {
                         INPUT: {
                             type: ArgumentType.STRING,
-                            menu: 'inputs',
+                            menu: 'languages',
                             defaultValue: 'In1'
 
                         }
@@ -209,14 +209,14 @@ class Scratch3PlayGoBlocks {
                     acceptReporters: true,
                     items: this._supportedLanguages
                 },
-                inputs: {
+                /*inputs: {
                     acceptReporters: false,
                     items: this.inputsList
                 },
                 outputs: {
                     acceptReporters: false,
                     items: this.outputsList
-                }
+                }*/
             }
         };
     }
