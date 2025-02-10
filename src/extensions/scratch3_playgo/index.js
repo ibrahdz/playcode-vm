@@ -52,6 +52,14 @@ class Scratch3PlayGoBlocks {
          * @private
          */
         this._supportedLanguages = [];
+        
+        /**
+         * List of supported language name and language code pairs, for use in the block menu.
+         * Filled in by getInfo so it is updated when the interface language changes.
+         * @type {Array.<object.<string, string>>}
+         * @private
+         */
+        this.outputsList = ['Out1', 'Out2', 'Out3', 'Out4'];
 
         /**
          * A randomly selected language code, for use as the default value in the language menu.
@@ -163,11 +171,30 @@ class Scratch3PlayGoBlocks {
                         }
                     }
                 },
+                {
+                    opcode: 'PlayGoTurnOn',
+                    text: formatMessage({
+                        id: 'translate.PlaygoTurnOn',
+                        default: 'Encender [OUTPUT]',
+                        description: 'Enciende una salida'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        OUTPUT: {
+                            type: ArgumentType.NUMBER,
+                            menu: 'outputs',
+                        }
+                    }
+                },
             ],
             menus: {
                 languages: {
                     acceptReporters: true,
                     items: this._supportedLanguages
+                },
+                languages: {
+                    acceptReporters: false,
+                    items: this.outputsList
                 }
             }
         };
@@ -179,6 +206,13 @@ class Scratch3PlayGoBlocks {
     calculate(args) {
         return args.NUM1 + args.NUM2;
     }
+
+    /**
+    * Turn on an output from the PlayGo board
+    */
+    PlayGoTurnOn(args) {
+        return true;
+    }    
 
     /**
      * Computes a list of language code and name pairs for the given language.
