@@ -5,7 +5,7 @@ const blockIconURI = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
 
 /*
 * Clase Arduino, hace la comunicación con el Serial del navegador
-* @TODO Se debe CAMBIAR
+* @todo CAMBIAR esta clase
 */
 class arduino {
     constructor (runtime, extensionId) {
@@ -122,26 +122,25 @@ class Scratch3PlayGoBlocks{
                     opcode: 'cmLED',
                     text: "Enciender LED [LED]",
                     blockType: BlockType.COMMAND,
-                    arguments: {
+                    /*arguments: {
                         LED: {
                             type: ArgumentType.STRING,
                             menu: 'LEDs',
                             defaultValue: 'M1'
                         },
-                    }
+                    }*/
                 },
             ],
-            menus: {
+            /*menus: {
                 LEDs: {
                     acceptReporters: true,
                     items: ["M1+", "M1-", "M2+", "M2-"]
                 }
-            }
+            }*/
         }
     }
     rpFotocelda = () => this._peripheral.value;
     evBotonA = () => this._peripheral.isBtnPressed();
     rpPotenciometro = () => this._peripheral.temp;
 }
-
 module.exports = Scratch3PlayGoBlocks;
