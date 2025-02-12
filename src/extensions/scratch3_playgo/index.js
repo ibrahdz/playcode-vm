@@ -84,6 +84,13 @@ const PlayGoMotors = {
     M2m: 'M2-'
 };
 
+const PlayGoGPIO = {
+    GPIO0: '0',
+    GPIO1: '1',
+    GPIO2: '2',
+    GPIO3: '3'
+};
+
 /*
 * Clase que crea los bloques, con sus argumentos y menus
 * @author ibrahdz
@@ -113,12 +120,27 @@ class Scratch3PlayGoBlocks{
         ];
     }
 
+    /**
+     * @return {array} - text and values for each motors menu element
+     */
     get MOTORS_MENU () {
         return [
             {text: 'M1+', value: PlayGoMotors.M1p},
             {text: 'M1-', value: PlayGoMotors.M1m},
             {text: 'M2+',value: PlayGoMotors.M2p},
             {text: 'M2-',value: PlayGoMotors.M2m}
+        ];
+    }
+
+    /**
+     * @return {array} - text and values for each gpio
+     */
+    get GPIO_MENU () {
+        return [
+            {text: 'GPIO0', value: PlayGoGPIO.GPIO0},
+            {text: 'GPIO1', value: PlayGoGPIO.GPIO1},
+            {text: 'GPIO2', value: PlayGoGPIO.GPIO2},
+            {text: 'GPIO3', value: PlayGoGPIO.GPIO3}
         ];
     }
 
@@ -191,6 +213,30 @@ class Scratch3PlayGoBlocks{
                         },
                     }
                 },
+                {
+                    opcode: 'rpGPIO',
+                    text: "valor de GPIO [GPIO]",
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        LED: {
+                            type: ArgumentType.STRING,
+                            menu: 'gpios',
+                            defaultValue: PlayGoGPIO.GPIO0
+                        },
+                    }
+                },
+                {
+                    opcode: 'cmGPIO',
+                    text: "encender GPIO [GPIO]",
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        LED: {
+                            type: ArgumentType.STRING,
+                            menu: 'gpios',
+                            defaultValue: PlayGoGPIO.GPIO0
+                        },
+                    }
+                },
             ],
             menus: {
                 buttons: {
@@ -200,6 +246,10 @@ class Scratch3PlayGoBlocks{
                 motors: {
                     acceptReporters: true,
                     items: this.MOTORS_MENU
+                },
+                gpios: {
+                    acceptReporters: true,
+                    items: this.GPIO_MENU
                 }
             }
         }
