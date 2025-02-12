@@ -174,8 +174,8 @@ class Scratch3PlayGoBlocks{
                     arguments: {
                         LED: {
                             type: ArgumentType.STRING,
-                            menu: 'LEDs',
-                            defaultValue: 'M1'
+                            menu: 'motors',
+                            defaultValue: PlayGoMotors.M1p
                         },
                     }
                 },
@@ -185,9 +185,9 @@ class Scratch3PlayGoBlocks{
                     acceptReporters: true,
                     items: this.BUTTONS_MENU
                 },
-                LEDs: {
+                motors: {
                     acceptReporters: true,
-                    items: ["M1+", "M1-", "M2+", "M2-"]
+                    items: this.MOTORS_MENU
                 }
             }
         }
