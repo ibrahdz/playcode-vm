@@ -122,21 +122,21 @@ class Scratch3PlayGoBlocks{
                     opcode: 'cmLED',
                     text: "Enciender LED [LED]",
                     blockType: BlockType.COMMAND,
-                    /*arguments: {
+                    arguments: {
                         LED: {
                             type: ArgumentType.STRING,
                             menu: 'LEDs',
                             defaultValue: 'M1'
                         },
-                    }*/
+                    }
                 },
             ],
-            /*menus: {
+            menus: {
                 LEDs: {
                     acceptReporters: true,
                     items: ["M1+", "M1-", "M2+", "M2-"]
                 }
-            }*/
+            }
         }
     }
     rpFotocelda = () => this._peripheral.value;
