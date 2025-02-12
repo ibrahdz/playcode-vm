@@ -95,32 +95,32 @@ class Scratch3PlayGoBlocks{
                 */
                 {
                     opcode: 'evBotonA',
-                    text: "Evento al presional el botón A",
+                    text: "al presional el botón A",
                     blockType: BlockType.HAT,
                 },            
                 {
                     opcode: 'evBotonB',
-                    text: "Evento al presional el botón B",
+                    text: "al presional el botón B",
                     blockType: BlockType.HAT,
                 },                
                 {
                     opcode: 'rpPotenciometro',
-                    text: "Reporta el valor del potenciometro",
+                    text: "valor del potenciometro",
                     blockType: BlockType.REPORTER,
                 },
                 {
                     opcode: 'rpMicrofono',
-                    text: "Reporta el valor del microfono",
+                    text: "valor del microfono",
                     blockType: BlockType.REPORTER,
                 },
                 {
                     opcode: 'rpFotocelda',
-                    text: "Reporta el valor de la fotocelda",
+                    text: "valor de la fotocelda",
                     blockType: BlockType.REPORTER,
                 },
                 {
                     opcode: 'cmLED',
-                    text: "Enciender LED [LED]",
+                    text: "encender LED [LED]",
                     blockType: BlockType.COMMAND,
                     arguments: {
                         LED: {
