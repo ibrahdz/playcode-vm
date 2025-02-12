@@ -137,7 +137,7 @@ class Scratch3PlayGoBlocks{
                 */
                 {
                     opcode: 'evBoton',
-                    text: "al presional el botón [boton]",
+                    text: "al presional el botón [BTN]",
                     blockType: BlockType.HAT,
                     arguments: {
                         BTN: {
@@ -146,12 +146,22 @@ class Scratch3PlayGoBlocks{
                             defaultValue: PlayGoButtons.A
                         }
                     }
-                },            
+                },           
                 {
-                    opcode: 'evBotonB',
-                    text: "al presional el botón B",
-                    blockType: BlockType.HAT,
-                },                
+                    opcode: 'displaySymbol',
+                    text: formatMessage({
+                        id: 'microbit.displaySymbol',
+                        default: 'display [MATRIX]',
+                        description: 'display a pattern on the micro:bit display'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        MATRIX: {
+                            type: ArgumentType.MATRIX,
+                            defaultValue: '0101010101100010101000100'
+                        }
+                    }
+                },
                 {
                     opcode: 'rpPotenciometro',
                     text: "valor del potenciometro",
