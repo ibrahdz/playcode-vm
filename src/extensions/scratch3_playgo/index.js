@@ -125,18 +125,18 @@ class Scratch3PlayGoBlocks{
                     arguments: {
                         LED: {
                             type: ArgumentType.STRING,
-                            menu: 'LEDs',
+                            //menu: 'LEDs',
                             defaultValue: 'M1'
                         },
                     }
                 },
             ],
-            menus: {
+            /* menus: {
                 LEDs: {
                     acceptReporters: true,
                     items: ["M1+", "M1-", "M2+", "M2-"]
                 }
-            }
+            } */
         }
     }
     rpFotocelda = () => this._peripheral.value;
