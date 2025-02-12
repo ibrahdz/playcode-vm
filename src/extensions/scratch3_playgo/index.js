@@ -141,11 +141,11 @@ class Scratch3PlayGoBlocks{
         }
     }
 
-		readSerial = () => this._peripheral.value
+		rpFotocelda = () => this._peripheral.value
 
-    whenBtnPressed = () => this._peripheral.isBtnPressed()
+    evBotonA = () => this._peripheral.isBtnPressed()
 
-    readTemp = () => this._peripheral.temp
+    rpPotenciometro = () => this._peripheral.temp
 }
 
 module.exports = Scratch3PlayGoBlocks
