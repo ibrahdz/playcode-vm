@@ -1,3 +1,4 @@
+const ArgumentType = require('../../extension-support/argument-type');
 const BlockType = require('../../extension-support/block-type')
 const Serial = require('../../io/serial.js')
 
@@ -125,18 +126,18 @@ class Scratch3PlayGoBlocks{
                     arguments: {
                         LED: {
                             type: ArgumentType.STRING,
-                            //menu: 'LEDs',
+                            menu: 'LEDs',
                             defaultValue: 'M1'
                         },
                     }
                 },
             ],
-            /* menus: {
+            menus: {
                 LEDs: {
                     acceptReporters: true,
                     items: ["M1+", "M1-", "M2+", "M2-"]
                 }
-            } */
+            }
         }
     }
     rpFotocelda = () => this._peripheral.value;
