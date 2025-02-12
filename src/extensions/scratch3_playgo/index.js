@@ -94,21 +94,50 @@ class Scratch3PlayGoBlocks{
             blockIconURI: blockIconURI,
             menuIconURI: blockIconURI,
             showStatusButton: true,
-						blocks: [
-              {
-                opcode: 'whenBtnPressed',
-                text: "Cuando se presione el botón",
-                blockType: BlockType.HAT,
-              }, {
-                opcode: 'readSerial',
-                text: "Obtener valor",
-                blockType: BlockType.REPORTER
-              }, {
-                opcode: 'readTemp',
-                text: "Temp example",
-                blockType: BlockType.REPORTER
-              }
-						]
+            blocks: [
+                {
+                    opcode: 'whenBtnPressed',
+                    text: "Cuando se presione el botón",
+                    blockType: BlockType.HAT,
+                },
+                {
+                    opcode: 'readSerial',
+                    text: "Obtener valor",
+                    blockType: BlockType.REPORTER
+                },
+                {
+                    opcode: 'readTemp',
+                    text: "Temp example",
+                    blockType: BlockType.REPORTER
+                },
+                /* Bloques creados por Ibraim, 12 Feb 2025
+                */
+                {
+                    opcode: 'evBotonA',
+                    text: "Evento al presional el botón A",
+                    blockType: BlockType.HAT,
+                },            
+                {
+                    opcode: 'evBotonB',
+                    text: "Evento al presional el botón B",
+                    blockType: BlockType.HAT,
+                },                
+                {
+                    opcode: 'rpPotenciometro',
+                    text: "Reporta el valor del potenciometro",
+                    blockType: BlockType.REPORTER,
+                },
+                {
+                    opcode: 'rpMicrofono',
+                    text: "Reporta el valor del microfono",
+                    blockType: BlockType.REPORTER,
+                },
+                {
+                    opcode: 'rpFotocelda',
+                    text: "Reporta el valor de la fotocelda",
+                    blockType: BlockType.REPORTER,
+                },
+            ]
         }
     }
 
