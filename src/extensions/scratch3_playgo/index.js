@@ -139,20 +139,23 @@ class Scratch3PlayGoBlocks{
                 },
                 {
                     opcode: 'cmLED',
-                    text: "Enciende un LED",
+                    text: "Enciender LED [LED]",
                     blockType: BlockType.COMMAND,
                     arguments: {
-                        NUM1: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: 0
+                        LED: {
+                            type: ArgumentType.STRING,
+                            menu: 'LEDs',
+                            defaultValue: 'M1'
                         },
-                        NUM2: {
-                            type: ArgumentType.NUMBER,                            
-                            defaultValue: 0
-                        }
                     }
                 },
-            ]
+            ],
+            menus: {
+                LEDs: {
+                    acceptReporters: true,
+                    items: ["M1+", "M1-", "M2+", "M2-"]
+                }
+            }
         }
     }
 
