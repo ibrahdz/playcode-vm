@@ -8,7 +8,7 @@ const blockIconURI = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNv
 * Clase Arduino, hace la comunicación con el Serial del navegador
 * @todo CAMBIAR esta clase
 */
-class arduino {
+class PlayGo {
     constructor (runtime, extensionId) {
 		this._runtime = runtime;
 		this._extensionId = extensionId;
@@ -69,25 +69,66 @@ class arduino {
     isBtnPressed = () => this.btn === 1;
 }
 
+const PlayGoButtons = {
+    A: 'A',
+    B: 'B',
+    ANY: 'any'
+};
+
+const PlayGoMotors = {
+    M1p: 'M1+',
+    M1m: 'M1-',
+    M2p: 'M2+',
+    M2m: 'M2-'
+};
+
 /*
 * Clase que crea los bloques, con sus argumentos y menus
 * @author ibrahdz
 *
 */
 class Scratch3PlayGoBlocks{
-    static get extensionId () {
-        return 'playgo'
+    /**
+     * @return {string} - the name of this extension.
+     */
+    static get EXTENSION_NAME () {
+        return 'PlayGo';
+    }
+    /**
+     * @return {string} - the ID of this extension.
+     */
+    static get EXTENSION_ID () {
+        return 'playgo';
+    }
+    /**
+     * @return {array} - text and values for each buttons menu element
+     */
+    get BUTTONS_MENU () {
+        return [
+            {text: 'A', value: PlayGoButtons.A},
+            {text: 'B', value: PlayGoButtons.B},
+            {text: 'any', value: PlayGoButtons.ANY}
+        ];
+    }
+
+    get MOTORS_MENU () {
+        return [
+            {text: 'M1+', value: PlayGoMotors.M1p},
+            {text: 'M1-', value: PlayGoMotors.M1m},
+            {text: 'M2+',value: PlayGoMotors.M2p},
+            {text: 'M2-',value: PlayGoMotors.M2m}
+        ];
     }
 
     constructor (runtime) {
         this.runtime = runtime
-        this._peripheral = new arduino(runtime, Scratch3PlayGoBlocks.extensionId)
+        this._peripheral = new PlayGo(runtime, Scratch3PlayGoBlocks.EXTENSION_ID)
     }
     
     getInfo () {
         return {
-            id: Scratch3PlayGoBlocks.extensionId,
-            name: 'PlayGo',
+            id: Scratch3PlayGoBlocks.EXTENSION_ID,
+            name: Scratch3PlayGoBlocks.EXTENSION_NAME,
             blockIconURI: blockIconURI,
             menuIconURI: blockIconURI,
             showStatusButton: true,
@@ -95,9 +136,16 @@ class Scratch3PlayGoBlocks{
                 /* Bloques creados por Ibraim, 12 Feb 2025
                 */
                 {
-                    opcode: 'evBotonA',
-                    text: "al presional el botón A",
+                    opcode: 'evBoton',
+                    text: "al presional el botón [boton]",
                     blockType: BlockType.HAT,
+                    arguments: {
+                        BTN: {
+                            type: ArgumentType.STRING,
+                            menu: 'buttons',
+                            defaultValue: PlayGoButtons.A
+                        }
+                    }
                 },            
                 {
                     opcode: 'evBotonB',
@@ -133,6 +181,10 @@ class Scratch3PlayGoBlocks{
                 },
             ],
             menus: {
+                buttons: {
+                    acceptReporters: true,
+                    items: this.BUTTONS_MENU
+                },
                 LEDs: {
                     acceptReporters: true,
                     items: ["M1+", "M1-", "M2+", "M2-"]
