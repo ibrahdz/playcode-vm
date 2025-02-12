@@ -137,6 +137,21 @@ class Scratch3PlayGoBlocks{
                     text: "Reporta el valor de la fotocelda",
                     blockType: BlockType.REPORTER,
                 },
+                {
+                    opcode: 'cmLED',
+                    text: "Enciende un LED",
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        NUM1: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 0
+                        },
+                        NUM2: {
+                            type: ArgumentType.NUMBER,                            
+                            defaultValue: 0
+                        }
+                    }
+                },
             ]
         }
     }
