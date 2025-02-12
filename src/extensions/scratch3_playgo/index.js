@@ -26,7 +26,7 @@ class arduino {
             this._runtime, 
             this._extensionId,
             this._onConnect,
-            this._onMessage;
+            this._onMessage
         )
     }
     connect(id) {
