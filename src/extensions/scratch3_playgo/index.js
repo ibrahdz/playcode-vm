@@ -68,6 +68,11 @@ class arduino {
     isBtnPressed = () => this.btn === 1;
 }
 
+/*
+* Clase que crea los bloques, con sus argumentos y menus
+* @author ibrahdz
+*
+*/
 class Scratch3PlayGoBlocks{
     static get extensionId () {
         return 'playgo'
