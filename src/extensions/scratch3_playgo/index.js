@@ -218,7 +218,7 @@ class Scratch3PlayGoBlocks{
                     text: "valor de GPIO [GPIO]",
                     blockType: BlockType.REPORTER,
                     arguments: {
-                        LED: {
+                        GPIO: {
                             type: ArgumentType.STRING,
                             menu: 'gpios',
                             defaultValue: PlayGoGPIO.GPIO0
@@ -230,7 +230,7 @@ class Scratch3PlayGoBlocks{
                     text: "encender GPIO [GPIO]",
                     blockType: BlockType.COMMAND,
                     arguments: {
-                        LED: {
+                        GPIO: {
                             type: ArgumentType.STRING,
                             menu: 'gpios',
                             defaultValue: PlayGoGPIO.GPIO0
