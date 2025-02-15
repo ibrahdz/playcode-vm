@@ -85,10 +85,10 @@ const PlayGoMotors = {
 };
 
 const PlayGoGPIO = {
-    GPIO0: '0',
-    GPIO1: '1',
-    GPIO2: '2',
-    GPIO3: '3'
+    GPIO0: 'GPIO0',
+    GPIO1: 'GPIO1',
+    GPIO2: 'GPIO2',
+    GPIO3: 'GPIO3'
 };
 
 /*
