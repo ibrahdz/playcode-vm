@@ -170,7 +170,8 @@ class Scratch3PlayGoBlocks{
                             defaultValue: PlayGoButtons.A
                         }
                     }
-                },           
+                },
+                '---',
                 {
                     opcode: 'displaySymbol',
                     text: formatMessage({
@@ -186,6 +187,7 @@ class Scratch3PlayGoBlocks{
                         }
                     }
                 },
+                '---',
                 {
                     opcode: 'rpPotenciometro',
                     text: "valor del potenciometro",
@@ -201,6 +203,7 @@ class Scratch3PlayGoBlocks{
                     text: "valor de la fotocelda",
                     blockType: BlockType.REPORTER,
                 },
+                '---',
                 {
                     opcode: 'cmLED',
                     text: "encender LED [LED]",
@@ -214,17 +217,11 @@ class Scratch3PlayGoBlocks{
                     }
                 },
                 {
-                    opcode: 'rpGPIO',
-                    text: "valor de GPIO [GPIO]",
-                    blockType: BlockType.REPORTER,
-                    arguments: {
-                        GPIO: {
-                            type: ArgumentType.STRING,
-                            menu: 'gpios',
-                            defaultValue: PlayGoGPIO.GPIO0
-                        },
-                    }
+                    opcode: 'cmBuzzer',
+                    text: "encender Buzzer",
+                    blockType: BlockType.COMMAND,                    
                 },
+                '---',  
                 {
                     opcode: 'cmGPIO',
                     text: "encender GPIO [GPIO]",
@@ -236,7 +233,19 @@ class Scratch3PlayGoBlocks{
                             defaultValue: PlayGoGPIO.GPIO0
                         },
                     }
-                },
+                }, 
+                {
+                    opcode: 'rpGPIO',
+                    text: "valor de GPIO [GPIO]",
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        GPIO: {
+                            type: ArgumentType.STRING,
+                            menu: 'gpios',
+                            defaultValue: PlayGoGPIO.GPIO0
+                        },
+                    }
+                },                                      
             ],
             menus: {
                 buttons: {
