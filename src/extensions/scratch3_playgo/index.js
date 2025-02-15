@@ -71,6 +71,30 @@ class PlayGo {
     isBtnPressed = () => this.btn === 1;
 }
 
+/**
+ * Enum for tilt sensor direction.
+ * @readonly
+ * @enum {string}
+ */
+const PlayGoTiltDirection = {
+    FRONT: 'front',
+    BACK: 'back',
+    LEFT: 'left',
+    RIGHT: 'right',
+    ANY: 'any'
+};
+
+/**
+ * Enum for PlayGo gestures.
+ * @readonly
+ * @enum {string}
+ */
+const PlayGoGestures = {
+    MOVED: 'moved',
+    SHAKEN: 'shaken',
+    JUMPED: 'jumped'
+};
+
 const PlayGoButtons = {
     A: 'A',
     B: 'B',
@@ -89,6 +113,16 @@ const PlayGoGPIO = {
     GPIO1: 'GPIO1',
     GPIO2: 'GPIO2',
     GPIO3: 'GPIO3'
+};
+
+/**
+ * Enum for micro:bit pin states.
+ * @readonly
+ * @enum {string}
+ */
+const PlayGoPinState = {
+    ON: 'on',
+    OFF: 'off'
 };
 
 /*
@@ -117,6 +151,119 @@ class Scratch3PlayGoBlocks{
             {text: 'A', value: PlayGoButtons.A},
             {text: 'B', value: PlayGoButtons.B},
             {text: 'any', value: PlayGoButtons.ANY}
+        ];
+    }
+
+     /**
+     * @return {array} - text and values for each gestures menu element
+     */
+    get GESTURES_MENU () {
+        return [
+            {
+                text: formatMessage({
+                    id: 'microbit.gesturesMenu.moved',
+                    default: 'moved',
+                    description: 'label for moved gesture in gesture picker for micro:bit extension'
+                }),
+                value: PlayGoGestures.MOVED
+            },
+            {
+                text: formatMessage({
+                    id: 'microbit.gesturesMenu.shaken',
+                    default: 'shaken',
+                    description: 'label for shaken gesture in gesture picker for micro:bit extension'
+                }),
+                value: PlayGoGestures.SHAKEN
+            },
+            {
+                text: formatMessage({
+                    id: 'microbit.gesturesMenu.jumped',
+                    default: 'jumped',
+                    description: 'label for jumped gesture in gesture picker for micro:bit extension'
+                }),
+                value: PlayGoGestures.JUMPED
+            }
+        ];
+    }
+
+    /**
+     * @return {array} - text and values for each pin state menu element
+     */
+    get PIN_STATE_MENU () {
+        return [
+            {
+                text: formatMessage({
+                    id: 'microbit.pinStateMenu.on',
+                    default: 'on',
+                    description: 'label for on element in pin state picker for micro:bit extension'
+                }),
+                value: PlayGoPinState.ON
+            },
+            {
+                text: formatMessage({
+                    id: 'microbit.pinStateMenu.off',
+                    default: 'off',
+                    description: 'label for off element in pin state picker for micro:bit extension'
+                }),
+                value: PlayGoPinState.OFF
+            }
+        ];
+    }
+
+    /**
+     * @return {array} - text and values for each tilt direction menu element
+     */
+    get TILT_DIRECTION_MENU () {
+        return [
+            {
+                text: formatMessage({
+                    id: 'microbit.tiltDirectionMenu.front',
+                    default: 'front',
+                    description: 'label for front element in tilt direction picker for micro:bit extension'
+                }),
+                value: PlayGoTiltDirection.FRONT
+            },
+            {
+                text: formatMessage({
+                    id: 'microbit.tiltDirectionMenu.back',
+                    default: 'back',
+                    description: 'label for back element in tilt direction picker for micro:bit extension'
+                }),
+                value: PlayGoTiltDirection.BACK
+            },
+            {
+                text: formatMessage({
+                    id: 'microbit.tiltDirectionMenu.left',
+                    default: 'left',
+                    description: 'label for left element in tilt direction picker for micro:bit extension'
+                }),
+                value: PlayGoTiltDirection.LEFT
+            },
+            {
+                text: formatMessage({
+                    id: 'microbit.tiltDirectionMenu.right',
+                    default: 'right',
+                    description: 'label for right element in tilt direction picker for micro:bit extension'
+                }),
+                value: PlayGoTiltDirection.RIGHT
+            }
+        ];
+    }
+
+    /**
+     * @return {array} - text and values for each tilt direction (plus "any") menu element
+     */
+    get TILT_DIRECTION_ANY_MENU () {
+        return [
+            ...this.TILT_DIRECTION_MENU,
+            {
+                text: formatMessage({
+                    id: 'microbit.tiltDirectionMenu.any',
+                    default: 'any',
+                    description: 'label for any direction element in tilt direction picker for micro:bit extension'
+                }),
+                value: PlayGoTiltDirection.ANY
+            }
         ];
     }
 
@@ -171,6 +318,39 @@ class Scratch3PlayGoBlocks{
                         }
                     }
                 },
+                {
+                    opcode: 'isButtonPressed',
+                    text: formatMessage({
+                        id: 'microbit.isButtonPressed',
+                        default: '[BTN] button pressed?',
+                        description: 'is the selected button on the micro:bit pressed?'
+                    }),
+                    blockType: BlockType.BOOLEAN,
+                    arguments: {
+                        BTN: {
+                            type: ArgumentType.STRING,
+                            menu: 'buttons',
+                            defaultValue: PlayGoButtons.A
+                        }
+                    }
+                },
+                '---',
+                {
+                    opcode: 'whenGesture',
+                    text: formatMessage({
+                        id: 'microbit.whenGesture',
+                        default: 'when [GESTURE]',
+                        description: 'when the selected gesture is detected by the micro:bit'
+                    }),
+                    blockType: BlockType.HAT,
+                    arguments: {
+                        GESTURE: {
+                            type: ArgumentType.STRING,
+                            menu: 'gestures',
+                            defaultValue: PlayGoGestures.MOVED
+                        }
+                    }
+                },
                 '---',
                 {
                     opcode: 'displaySymbol',
@@ -184,6 +364,88 @@ class Scratch3PlayGoBlocks{
                         MATRIX: {
                             type: ArgumentType.MATRIX,
                             defaultValue: '0101010101100010101000100'
+                        }
+                    }
+                },
+                {
+                    opcode: 'displayText',
+                    text: formatMessage({
+                        id: 'microbit.displayText',
+                        default: 'display text [TEXT]',
+                        description: 'display text on the micro:bit display'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        TEXT: {
+                            type: ArgumentType.STRING,
+                            defaultValue: formatMessage({
+                                id: 'microbit.defaultTextToDisplay',
+                                default: 'Hello!',
+                                description: `default text to display.
+                                IMPORTANT - the micro:bit only supports letters a-z, A-Z.
+                                Please substitute a default word in your language
+                                that can be written with those characters,
+                                substitute non-accented characters or leave it as "Hello!".
+                                Check the micro:bit site documentation for details`
+                            })
+                        }
+                    }
+                },
+                {
+                    opcode: 'displayClear',
+                    text: formatMessage({
+                        id: 'microbit.clearDisplay',
+                        default: 'clear display',
+                        description: 'display nothing on the micro:bit display'
+                    }),
+                    blockType: BlockType.COMMAND
+                },
+                '---',
+                {
+                    opcode: 'whenTilted',
+                    text: formatMessage({
+                        id: 'microbit.whenTilted',
+                        default: 'when tilted [DIRECTION]',
+                        description: 'when the micro:bit is tilted in a direction'
+                    }),
+                    blockType: BlockType.HAT,
+                    arguments: {
+                        DIRECTION: {
+                            type: ArgumentType.STRING,
+                            menu: 'tiltDirectionAny',
+                            defaultValue: PlayGoTiltDirection.ANY
+                        }
+                    }
+                },
+                {
+                    opcode: 'isTilted',
+                    text: formatMessage({
+                        id: 'microbit.isTilted',
+                        default: 'tilted [DIRECTION]?',
+                        description: 'is the micro:bit is tilted in a direction?'
+                    }),
+                    blockType: BlockType.BOOLEAN,
+                    arguments: {
+                        DIRECTION: {
+                            type: ArgumentType.STRING,
+                            menu: 'tiltDirectionAny',
+                            defaultValue: PlayGoTiltDirection.ANY
+                        }
+                    }
+                },
+                {
+                    opcode: 'getTiltAngle',
+                    text: formatMessage({
+                        id: 'microbit.tiltAngle',
+                        default: 'tilt angle [DIRECTION]',
+                        description: 'how much the micro:bit is tilted in a direction'
+                    }),
+                    blockType: BlockType.REPORTER,
+                    arguments: {
+                        DIRECTION: {
+                            type: ArgumentType.STRING,
+                            menu: 'tiltDirection',
+                            defaultValue: PlayGoTiltDirection.FRONT
                         }
                     }
                 },
@@ -245,7 +507,24 @@ class Scratch3PlayGoBlocks{
                             defaultValue: PlayGoGPIO.GPIO0
                         },
                     }
-                },                                      
+                },          
+                {
+                    opcode: 'whenPinConnected',
+                    text: formatMessage({
+                        id: 'microbit.whenPinConnected',
+                        default: 'when pin [PIN] connected',
+                        description: 'when the pin detects a connection to Earth/Ground'
+
+                    }),
+                    blockType: BlockType.HAT,
+                    arguments: {
+                        PIN: {
+                            type: ArgumentType.STRING,
+                            menu: 'touchPins',
+                            defaultValue: '0'
+                        }
+                    }
+                },
             ],
             menus: {
                 buttons: {
@@ -259,6 +538,26 @@ class Scratch3PlayGoBlocks{
                 gpios: {
                     acceptReporters: true,
                     items: this.GPIO_MENU
+                },
+                gestures: {
+                    acceptReporters: true,
+                    items: this.GESTURES_MENU
+                },
+                pinState: {
+                    acceptReporters: true,
+                    items: this.PIN_STATE_MENU
+                },
+                tiltDirection: {
+                    acceptReporters: true,
+                    items: this.TILT_DIRECTION_MENU
+                },
+                tiltDirectionAny: {
+                    acceptReporters: true,
+                    items: this.TILT_DIRECTION_ANY_MENU
+                },
+                touchPins: {
+                    acceptReporters: true,
+                    items: ['0', '1', '2']
                 }
             }
         }
