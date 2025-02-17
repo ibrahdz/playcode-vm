@@ -10,7 +10,7 @@ class Scratch3PlayIoTBlocks{
 
     constructor (runtime) {
         this.runtime = runtime
-        this._peripheral = new PlayIoT(runtime, Scratch3PlayIoTBlocks.extensionId)
+        this._peripheral = new PlayIoTBoard(runtime, Scratch3PlayIoTBlocks.extensionId)
     }
 
     getInfo () {
