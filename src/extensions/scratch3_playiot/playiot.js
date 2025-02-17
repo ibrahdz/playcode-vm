@@ -73,3 +73,4 @@ class PlayIoT {
 
   isBtnPressed = () => this.btn === 1
 }
+module.exports = PlayIoT
