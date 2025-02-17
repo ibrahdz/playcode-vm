@@ -37,12 +37,8 @@ class Scratch3PlayIoTBlocks{
 						]
         }
     }
-
-		readSerial = () => this._peripheral.value
-
+	readSerial = () => this._peripheral.value
     whenBtnPressed = () => this._peripheral.isBtnPressed()
-
     readTemp = () => this._peripheral.temp
 }
-
 module.exports = Scratch3PlayIoTBlocks
