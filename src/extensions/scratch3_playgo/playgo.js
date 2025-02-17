@@ -1,4 +1,5 @@
 const Serial = require('../../io/serial.js')
+
 /*
 * Clase Arduino, hace la comunicación con el Serial del navegador
 * @todo CAMBIAR esta clase
