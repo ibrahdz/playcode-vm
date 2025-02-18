@@ -1,8 +1,8 @@
 const Serial = require('../../io/serial.js')
 
 class PlayIoT {
-	constructor (runtime, extensionId) {
-		this._runtime = runtime
+    constructor (runtime, extensionId) {
+        this._runtime = runtime
 		this._extensionId = extensionId
 		this._serial = null
 		this._runtime.registerPeripheralExtension(extensionId, this)
@@ -13,20 +13,20 @@ class PlayIoT {
     this.message = null
     this._messageObj = null
 	}
-
-  scan() {
-    if(this._serial) this._serial.disconnectPeripheral()
-    this._serial = new Serial(
-      this._runtime, 
-      this._extensionId,
-			this._onConnect,
-      this._onMessage
-    )
-  }
-
-  connect(id) {
-    if (this._serial) this._serial.connectPeripheral(id)
-  }
+    
+    scan () {
+        if(this._serial) this._serial.disconnectPeripheral()
+        this._serial = new Serial(
+            this._runtime, 
+            this._extensionId,
+            this._onConnect,
+            this._onMessage
+        )
+    }
+    
+    connect (id) {
+        if (this._serial) this._serial.connectPeripheral(id)
+    }
 
 	disconnect () {
 		if (this._serial) {
@@ -35,41 +35,33 @@ class PlayIoT {
 		}
 	}
 
-	reset () {
-
-	}
+	reset () { }
 
 	isConnected () {
 		if(this._serial) {
 			return this._serial.connected
 		} else return false
-	}    
-
-  _onConnect () {
+	} 
     
-  }
-
-  _pollValues () {
-
-  }
-
-  _onMessage (value) {
-    this.message = value
-    //Vulnerabilidad complicada
-    try {
-      this._messageObj = JSON.parse(value)
-
-      this.value = this._messageObj.potentiometer
-      this.btn = this._messageObj.button14
-      this.temp = this._messageObj.joyx
-
-    } catch (e) {
-      this._messageObj = {
-        error: "Error al parsear el mensaje"
-      }  
+    _onConnect () { }
+    _pollValues () { }
+    
+    _onMessage (value) {
+        this.message = value
+        //Vulnerabilidad complicada
+        try {
+            this._messageObj = JSON.parse(value)
+            this.potentiometer = this._messageObj.potentiometer
+            this.btn14 = this._messageObj.button14
+            this.btn15 = this._messageObj.button15
+            this.joyx = this._messageObj.joyx
+            this.joyx = this._messageObj.joyx
+        } catch (e) {
+            this._messageObj = {
+                error: "Error al parsear el mensaje"
+            }  
+        }
     }
-  }
-
-  isBtnPressed = () => this.btn === 1
+    isBtnPressed = () => this.btn14 === 1
 }
 module.exports = PlayIoT
