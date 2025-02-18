@@ -249,7 +249,7 @@ class Scratch3PlayIoTBlocks{
             }
         }
     }
-	rpPotentiometer = () => this._peripheral.potentiometer
+	rpPotentiometer = () => this._peripheral.pot
     rpJoystickX = () => this._peripheral.joyx
     rpJoystickY = () => this._peripheral.joyy
     //whenButtonPressed = () => this._peripheral.isBtnPressedA()
