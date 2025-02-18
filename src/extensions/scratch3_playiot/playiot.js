@@ -2,19 +2,20 @@ const Serial = require('../../io/serial.js')
 
 class PlayIoT {
     constructor(runtime, extensionId) {
-    try {
-        this._runtime = runtime;
-        this._extensionId = extensionId;
-        this._serial = null;
-        this._runtime.registerPeripheralExtension(extensionId, this);
-        this.reset = this.reset.bind(this);
-        this._onConnect = this._onConnect.bind(this);
-        this._onMessage = this._onMessage.bind(this);
-        this._pollValues = this._pollValues.bind(this);
-        this.message = null;
-        this._messageObj = null;
-    } catch (error) {
-        console.error("Error in constructor:", error);
+        try {
+            this._runtime = runtime;
+            this._extensionId = extensionId;
+            this._serial = null;
+            this._runtime.registerPeripheralExtension(extensionId, this);
+            this.reset = this.reset.bind(this);
+            this._onConnect = this._onConnect.bind(this);
+            this._onMessage = this._onMessage.bind(this);
+            this._pollValues = this._pollValues.bind(this);
+            this.message = null;
+            this._messageObj = null;
+        } catch (error) {
+            console.error("Error in constructor:", error);
+        }
     }
         
     scan() {
