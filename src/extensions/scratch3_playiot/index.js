@@ -159,7 +159,7 @@ class Scratch3PlayIoTBlocks{
                 },
                 '---',
                 {
-                    opcode: 'rpPotenciometro',
+                    opcode: 'rpPotentiometer',
                     text: "valor del potenciometro",
                     blockType: BlockType.REPORTER,
                 }, 
