@@ -62,6 +62,7 @@ class PlayIoT {
             }  
         }
     }
-    //isBtnPressed = () => this.btn14 === 1
+    isBtnPressedA = () => this.buttonA === 1
+    isBtnPressedB = () => this.buttonB === 1
 }
 module.exports = PlayIoT
