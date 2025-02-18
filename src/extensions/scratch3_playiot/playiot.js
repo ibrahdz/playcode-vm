@@ -11,8 +11,7 @@ class PlayIoT {
             this._onConnect = this._onConnect.bind(this);
             this._onMessage = this._onMessage.bind(this);
             this._pollValues = this._pollValues.bind(this);
-            this.message = null;
-            this._messageObj = null;
+            this._messageJSON = null;
         } catch (error) {
             console.error("Error in constructor:", error);
         }
@@ -75,15 +74,13 @@ class PlayIoT {
     _pollValues () { }
     
     _onMessage (value) {
-        this.message = value
-        //Vulnerabilidad complicada
         try {
-            this._messageObj = JSON.parse(value)
-            this.pot = this._messageObj.potentiometer
-            this.buttonA = this._messageObj.button14
-            this.buttonB = this._messageObj.button15
-            this.joyx = this._messageObj.joyx
-            this.joyy = this._messageObj.joyy
+            this._messageJSON = JSON.parse(value)
+            this.pot = this._messageJSON.potentiometer
+            this.buttonA = this._messageJSON.button14
+            this.buttonB = this._messageJSON.button15
+            this.joyx = this._messageJSON.joyx
+            this.joyy = this._messageJSON.joyy
         } catch (error) {            
             console.error("Error reading and parsing json:", error);
             return false; // Default fallback value
