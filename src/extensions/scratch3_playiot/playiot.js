@@ -59,10 +59,9 @@ class PlayIoT {
     try {
       this._messageObj = JSON.parse(value)
 
-      this.value = this._messageObj.value
-      this.btn = this._messageObj.button
-
-      this.temp = this._messageObj.temp
+      this.value = this._messageObj.potentiometer
+      this.btn = this._messageObj.button14
+      this.temp = this._messageObj.joyx
 
     } catch (e) {
       this._messageObj = {
