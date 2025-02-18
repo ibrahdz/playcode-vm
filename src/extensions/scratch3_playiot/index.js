@@ -172,7 +172,7 @@ class Scratch3PlayIoTBlocks{
                     opcode: 'rpJoystickY',
                     text: "valor joystick Y",
                     blockType: BlockType.REPORTER
-                }
+                },
                 '---',
                 {
                     opcode: 'cmLED',
