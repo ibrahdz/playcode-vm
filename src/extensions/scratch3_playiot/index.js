@@ -252,14 +252,14 @@ class Scratch3PlayIoTBlocks{
 	rpPotentiometer = () => this._peripheral.potentiometer
     rpJoystickX = () => this._peripheral.joyx
     rpJoystickY = () => this._peripheral.joyy
-    whenButtonPressed = () => this._peripheral.isBtnPressedA()
+    //whenButtonPressed = () => this._peripheral.isBtnPressedA()
 
     /**
      * Test whether the A or B button is pressed
      * @param {object} args - the block's arguments.
      * @return {boolean} - true if the button is pressed.
      */
-    /*whenButtonPressed (args) {
+    whenButtonPressed (args) {
         if (args.BTN === 'any') {
             return this._peripheral.buttonA | this._peripheral.buttonB;
         } else if (args.BTN === 'A') {
@@ -268,7 +268,7 @@ class Scratch3PlayIoTBlocks{
             return this._peripheral.buttonB;
         }
         return false;
-    }*/
+    }
 
     /**
      * Test whether the A or B button is pressed
