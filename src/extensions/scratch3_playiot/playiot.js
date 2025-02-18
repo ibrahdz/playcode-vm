@@ -62,7 +62,22 @@ class PlayIoT {
             }  
         }
     }
-    isBtnPressedA = () => this.buttonA === 1
-    isBtnPressedB = () => this.buttonB === 1
+    isBtnPressedA = () => {
+        try {
+            return this.buttonA === 1;
+        } catch (error) {
+            console.error("Error checking buttonA:", error);
+            return false; // Default fallback value
+        }
+    };
+
+    isBtnPressedB = () => {
+        try {
+            return this.buttonB === 1;
+        } catch (error) {
+            console.error("Error checking buttonB:", error);
+            return false; // Default fallback value
+        }
+    };
 }
 module.exports = PlayIoT
