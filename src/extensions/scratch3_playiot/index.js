@@ -26,19 +26,25 @@ class Scratch3PlayIoTBlocks{
                 text: "Cuando se presione el botón",
                 blockType: BlockType.HAT,
               }, {
-                opcode: 'readSerial',
-                text: "Obtener valor",
+                opcode: 'rpPotentiometer',
+                text: "valor potenciometro",
                 blockType: BlockType.REPORTER
               }, {
-                opcode: 'readTemp',
-                text: "Temp example",
+                opcode: 'rpJoystickX',
+                text: "valor joystick X",
+                blockType: BlockType.REPORTER
+              },
+              {
+                opcode: 'rpJoystickY',
+                text: "valor joystick Y",
                 blockType: BlockType.REPORTER
               }
-						]
+            ]
         }
     }
-	readSerial = () => this._peripheral.value
+	rpPotentiometer = () => this._peripheral.potentiometer
     whenBtnPressed = () => this._peripheral.isBtnPressed()
-    readTemp = () => this._peripheral.temp
+    rpJoystickX = () => this._peripheral.joyx
+    rpJoystickY = () => this._peripheral.joyy
 }
 module.exports = Scratch3PlayIoTBlocks
