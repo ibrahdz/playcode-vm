@@ -79,7 +79,7 @@ class PlayIoT {
         //Vulnerabilidad complicada
         try {
             this._messageObj = JSON.parse(value)
-            this.potentiometer = this._messageObj.potentiometer
+            this.pot = this._messageObj.potentiometer
             this.buttonA = this._messageObj.button14
             this.buttonB = this._messageObj.button15
             this.joyx = this._messageObj.joyx
