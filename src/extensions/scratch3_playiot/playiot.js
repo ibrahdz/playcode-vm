@@ -52,8 +52,8 @@ class PlayIoT {
         try {
             this._messageObj = JSON.parse(value)
             this.potentiometer = this._messageObj.potentiometer
-            this.btn14 = this._messageObj.button14
-            this.btn15 = this._messageObj.button15
+            this.buttonA = this._messageObj.button14
+            this.buttonB = this._messageObj.button15
             this.joyx = this._messageObj.joyx
             this.joyx = this._messageObj.joyx
         } catch (e) {
@@ -62,6 +62,6 @@ class PlayIoT {
             }  
         }
     }
-    isBtnPressed = () => this.btn14 === 1
+    //isBtnPressed = () => this.btn14 === 1
 }
 module.exports = PlayIoT
