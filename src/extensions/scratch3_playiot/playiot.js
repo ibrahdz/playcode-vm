@@ -59,7 +59,9 @@ class PlayIoT {
         } catch (e) {
             this._messageObj = {
                 error: "Error al parsear el mensaje"
-            }  
+            } 
+            console.error("Error reading and parsing json :", error);
+            return false; // Default fallback value
         }
     }
     isBtnPressedA = () => {
