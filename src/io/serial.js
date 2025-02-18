@@ -55,7 +55,7 @@ class Serial {
         this._device = ports[id]
         //Realizar confirmacion del firmware
         //Realizar autenticacion de dispositivo
-        this._device.open({baudRate: 9600})
+        this._device.open({baudRate: 115200})
         .then(() => {
           this.connected = true
           this._runtime.emit(this._runtime.constructor.PERIPHERAL_CONNECTED)
