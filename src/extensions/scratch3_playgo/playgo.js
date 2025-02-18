@@ -62,7 +62,7 @@ class PlayGo {
             }  
         }
     }
-    isBtnPressed = () => this.btn === 1;
+    isBtnPressed = () => this.evBotonA === 1;
 }
 
 module.exports = PlayGo;
