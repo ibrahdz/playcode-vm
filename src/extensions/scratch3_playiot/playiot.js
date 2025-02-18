@@ -83,7 +83,7 @@ class PlayIoT {
             this.buttonA = this._messageObj.button14
             this.buttonB = this._messageObj.button15
             this.joyx = this._messageObj.joyx
-            this.joyx = this._messageObj.joyx
+            this.joyy = this._messageObj.joyy
         } catch (error) {            
             console.error("Error reading and parsing json:", error);
             return false; // Default fallback value
