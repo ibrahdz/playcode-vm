@@ -1,48 +1,75 @@
 const Serial = require('../../io/serial.js')
 
 class PlayIoT {
-    constructor (runtime, extensionId) {
-        this._runtime = runtime
-		this._extensionId = extensionId
-		this._serial = null
-		this._runtime.registerPeripheralExtension(extensionId, this)
-		this.reset = this.reset.bind(this)
-		this._onConnect = this._onConnect.bind(this)
-		this._onMessage = this._onMessage.bind(this)
-		this._pollValues = this._pollValues.bind(this)
-    this.message = null
-    this._messageObj = null
-	}
-    
-    scan () {
-        if(this._serial) this._serial.disconnectPeripheral()
-        this._serial = new Serial(
-            this._runtime, 
-            this._extensionId,
-            this._onConnect,
-            this._onMessage
-        )
+    constructor(runtime, extensionId) {
+    try {
+        this._runtime = runtime;
+        this._extensionId = extensionId;
+        this._serial = null;
+        this._runtime.registerPeripheralExtension(extensionId, this);
+        this.reset = this.reset.bind(this);
+        this._onConnect = this._onConnect.bind(this);
+        this._onMessage = this._onMessage.bind(this);
+        this._pollValues = this._pollValues.bind(this);
+        this.message = null;
+        this._messageObj = null;
+    } catch (error) {
+        console.error("Error in constructor:", error);
+    }
+        
+    scan() {
+        try {
+            if (this._serial) this._serial.disconnectPeripheral();
+            this._serial = new Serial(
+                this._runtime,
+                this._extensionId,
+                this._onConnect,
+                this._onMessage
+            );
+        } catch (error) {
+            console.error("Error in scan():", error);
+        }
     }
     
-    connect (id) {
-        if (this._serial) this._serial.connectPeripheral(id)
+    connect(id) {
+        try {
+            if (this._serial) this._serial.connectPeripheral(id);
+        } catch (error) {
+            console.error("Error in connect():", error);
+        }
     }
-
-	disconnect () {
-		if (this._serial) {
-			this._serial.disconnectPeripheral()
-			// this.reset();
-		}
-	}
-
-	reset () { }
-
-	isConnected () {
-		if(this._serial) {
-			return this._serial.connected
-		} else return false
-	} 
     
+    disconnect() {
+        try {
+            if (this._serial) {
+                this._serial.disconnectPeripheral();
+                // this.reset();
+            }
+        } catch (error) {
+            console.error("Error in disconnect():", error);
+        }
+    }
+    
+    reset() {
+        try {
+            // Add reset logic here if needed
+        } catch (error) {
+            console.error("Error in reset():", error);
+        }
+    }
+    
+    isConnected() {
+        try {
+            if (this._serial) {
+                return this._serial.connected;
+            } else {
+                return false;
+            }
+        } catch (error) {
+            console.error("Error in isConnected():", error);
+            return false;
+        }
+    }    
     _onConnect () { }
     _pollValues () { }
     
@@ -56,11 +83,8 @@ class PlayIoT {
             this.buttonB = this._messageObj.button15
             this.joyx = this._messageObj.joyx
             this.joyx = this._messageObj.joyx
-        } catch (e) {
-            this._messageObj = {
-                error: "Error al parsear el mensaje"
-            } 
-            console.error("Error reading and parsing json :", error);
+        } catch (error) {            
+            console.error("Error reading and parsing json:", error);
             return false; // Default fallback value
         }
     }
